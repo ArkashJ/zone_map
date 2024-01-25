@@ -1,17 +1,14 @@
 #include "zonemaps.h"
 
 template <typename T>
-zonemap<T>::zonemap(std::vector<T> _elements, uint _num_elements_per_zone) {
-  // constructor
-  void zonemap<T>::zonemap(std::vector<T> _elements,
-                           uint _num_elements_per_zone)
+zonemap<T>::zonemap(std::vector<T> _elements, uint _num_elements_per_zone) 
       : elements(_elements), num_elements_per_zone(_num_elements_per_zone) {
     num_zones = elements.size() / num_elements_per_zone;
     zones.resize(num_zones);
-  }
 }
 
-template <typename T> void build() {
+template <typename T> 
+void build() {
   sort_elements();
   for (int i = 0; i < num_zones; i++) {
     int start = i * num_elements_per_zone;
@@ -27,11 +24,13 @@ template <typename T> void build() {
   }
 }
 
-template <typename T> void sort_elements() {
+template <typename T> 
+void sort_elements() {
   std::sort(elements.begin(), elements.end());
 }
 
-template <typename T> bool zonemap<T>::query(T key) {
+template <typename T> 
+bool zonemap<T>::query(T key) {
   int low = 0;
   int high = num_zones - 1;
   while (low <= high) {
@@ -49,7 +48,8 @@ template <typename T> bool zonemap<T>::query(T key) {
   return false;
 }
 
-template <typename T> std::vector<T> zonemap<T>::query(T low, T high) {
+template <typename T> 
+std::vector<T> zonemap<T>::query(T low, T high) {
   int low_zone_idx = 0;
   int high_zone_idx = num_zones - 1;
   while (low_zone_idx <= high_zone_idx) {

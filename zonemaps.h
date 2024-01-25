@@ -27,23 +27,19 @@ public:
    * Param: number of elements per zone
    * returns: N/A
    */
-  zonemap(std::vector<T> _elements,
-          uint _num_elements_per_zone); /**
-                                         * Purpose: builds the zonemap using the
-                                         * elements array/list. Maintains
-                                         * invariant that no. of elements in
-                                         * every zone is less than or equal to
-                                         * num_elements_per_zone Param: N/A
-                                         * returns: N/A
-                                         */
-  void build();
+  zonemap(std::vector<T> _elements, uint _num_elements_per_zone);
+    /**
+   * Purpose: builds the zonemap using the elements array/list. Maintains
+   * invariant that no. of elements in every zone is less than or equal to
+   * num_elements_per_zone Param: N/A returns: N/A
+   */
+  void build()
   /**
    * Purpose: sorts the elements in the vector/list/array.
    * Param: N/A
    * returns: N/A
    */
   void sort_elements();
-
   /**
    * Purpose: Query a key using the zonemap
    * Param: Key to be queried
@@ -57,4 +53,5 @@ public:
    * returns: list of elements found using the query
    */
   std::vector<T> query(T low, T high);
+};
 #endif
